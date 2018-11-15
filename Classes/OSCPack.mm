@@ -169,7 +169,10 @@ T nsvalue_to_oscpack(NSValue *value) {
                                                 delegateQueue:dispatch_get_main_queue()];
     // disable ipv6 to avoid duplicate messages
     [self.socket setIPv6Enabled:NO];
-
+	
+	//do to object behaviour the delegate needs to be set to work
+	self.socket.delegate = self;
+	
 	return self;
 }
 
